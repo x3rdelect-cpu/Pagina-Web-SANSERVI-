@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Libro de Reclamaciones - Sanservi</title>
+  <meta name="description" content="Conoce a Sanservi, empresa peruana de saneamiento ambiental y servicios integrados. Presenta tu reclamo o queja a travÃ©s de nuestro Libro de Reclamaciones virtual.">
+  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+<header id="header">
+  <div class="header-contenedor">
+    <div class="logo">
+      <a href="Inicio.html" class="logo-enlace" aria-label="Sanservi Inicio">
+        <img src="Img-web/Logo_Sanservi.png" alt="Logo de Sanservi" class="logo-img">
+      </a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="navPrincipal">
+      <ul>
+        <li><a href="Inicio.html">Inicio</a></li>
+        <li><a href="Nosotros.html"> Nosotros</a></li>
+        <li class="dropdown">
+          <a href="#servicios" class="dropdown-toggle" aria-expanded="false">Servicios <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="ServiciosLimpieza.html"><i class="fas fa-broom"></i> Limpieza</a></li>
+            <li><a href="ServiciosSaneamiento.html"><i class="fas fa-hand-holding-medical"></i> Saneamiento</a></li>
+          </ul>
+        </li>
+        <li><a href="Blog.html">Blog</a></li>
+        <li><a href="Inicio.html#contacto">Contacto</a></li>
+        <li><a href="Contratacion.html" class="btn-nav-cta">Trabaja con Nosotros</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="sub-Limpieza">
+  <h2>Libro de Reclamaciones</h2>
+  <p style="color: var(--azul-claro); max-width: 600px; margin: 10px auto 0; font-weight: 300;">
+    Presenta tu reclamo o queja a través de nuestro libro de reclamaciones virtual.</p>
+</section>
+
+<section id="libro-reclamaciones" class="libro-reclamaciones-seccion">
+  <div class="contenedor-seccion" style="padding-top: 60px;">
+    <div class="seccion-cabecera">
+      <span class="seccion-subtitulo">Protección al Consumidor</span>
+      <p>Como proveedor de servicios en el Perú, Sanservi pone a tu disposición este Libro de Reclamaciones virtual, conforme a lo establecido por el Código de Protección y Defensa del Consumidor.</p>
+    </div>
+
+    <div class="libro-reclamaciones-wrap">
+      <div class="libro-cabecera-oficial">
+        <i class="fas fa-book"></i>
+        <div>
+          <h3>Libro de Reclamaciones</h3>
+          <p>Sanservi S.A.C. — Calle Chinchón 858 Piso 2/B, San Isidro, Lima, Perú</p>
+        </div>
+      </div>
+
+      <div class="libro-cuerpo">
+
+        <div class="aviso-legal-caja">
+          <strong>Aviso:</strong> Este establecimiento cuenta con un Libro de Reclamaciones a disposición del consumidor. Formular un reclamo no impide acudir a otras vías de solución de controversias ni es requisito previo para interponer una denuncia ante el <strong>INDECOPI</strong>.
+        </div>
+
+        <form class="contacto-formulario" id="formReclamos" action="ProcesarReclamo.php" method="POST">
+
+          <div class="libro-subtitulo">1. Tipo de solicitud</div>
+          <div class="tipo-reclamo-selector">
+            <label class="tipo-reclamo-opcion">
+              <input type="radio" name="tipo" value="Reclamo" checked>
+              <div class="opcion-caja">
+                <strong><i class="fas fa-triangle-exclamation"></i> Reclamo</strong>
+                <p>Disconformidad relacionada a los servicios contratados o productos adquiridos.</p>
+              </div>
+            </label>
+            <label class="tipo-reclamo-opcion">
+              <input type="radio" name="tipo" value="Queja">
+              <div class="opcion-caja">
+                <strong><i class="fas fa-comment-dots"></i> Queja</strong>
+                <p>Malestar relacionado a la atención al público, sin vincularse directamente al servicio.</p>
+              </div>
+            </label>
+          </div>
+
+          <div class="libro-subtitulo">2. Identificación del consumidor reclamante</div>
+
+          <div class="form-grid-doble">
+            <div class="form-grupo">
+              <label for="nombres">Nombres y Apellidos</label>
+              <input type="text" id="nombres" name="nombres" required placeholder="Ej. María Torres Vidal">
+            </div>
+            <div class="form-grupo">
+              <label for="documento">DNI / Carné de Extranjería / Pasaporte</label>
+              <input type="text" id="documento" name="documento" required placeholder="Ej. 47852136">
+            </div>
+          </div>
+
+          <div class="form-grid-doble" style="margin-top: 20px;">
+            <div class="form-grupo">
+              <label for="telefono">Teléfono / Celular</label>
+              <input type="tel" id="telefono" name="telefono" required placeholder="Ej. 987654321">
+            </div>
+            <div class="form-grupo">
+              <label for="correo">Correo Electrónico</label>
+              <input type="email" id="correo" name="correo" required placeholder="Ej. maria.torres@email.com">
+            </div>
+          </div>
+
+          <div class="form-grupo" style="margin-top: 20px;">
+            <label for="domicilio">Domicilio (dirección, distrito)</label>
+            <input type="text" id="domicilio" name="domicilio" required placeholder="Ej. Av. Los Próceres 123, Surco, Lima">
+          </div>
+
+          <label class="menor-edad-toggle" style="margin-top: 18px;">
+            <input type="checkbox" id="esMenor" name="es_menor">
+            El reclamante es menor de edad (se requieren datos del padre, madre o apoderado)
+          </label>
+
+          <div class="campos-apoderado" id="camposApoderado">
+            <div class="form-grupo">
+              <label for="apoderadoNombre">Nombres y Apellidos del apoderado</label>
+              <input type="text" id="apoderadoNombre" name="apoderado_nombre" placeholder="Ej. Carlos Torres Ramos">
+            </div>
+            <div class="form-grupo">
+              <label for="apoderadoDoc">Documento de identidad del apoderado</label>
+              <input type="text" id="apoderadoDoc" name="apoderado_documento" placeholder="Ej. 41256987">
+            </div>
+          </div>
+
+          <div class="libro-subtitulo">3. Detalle de la contratación</div>
+
+          <div class="form-grid-doble">
+            <div class="form-grupo">
+              <label for="servicioContratado">Servicio contratado</label>
+              <select id="servicioContratado" name="servicio" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="limpieza">Servicios de Limpieza</option>
+                <option value="saneamiento">Saneamiento Ambiental</option>
+                <option value="ambos">Servicio Integrado Completo</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-grupo">
+              <label for="monto">Monto reclamado (S/) - opcional</label>
+              <input type="number" id="monto" name="monto" min="0" step="0.01" placeholder="Ej. 250.00">
+            </div>
+          </div>
+
+          <div class="libro-subtitulo">4. Detalle del reclamo o queja</div>
+
+          <div class="form-grupo">
+            <label for="detalle">Describe los hechos</label>
+            <textarea id="detalle" name="detalle" rows="4" required placeholder="Describe con el mayor detalle posible lo ocurrido: fecha del servicio, lo acordado y la disconformidad presentada..."></textarea>
+          </div>
+
+          <div class="form-grupo" style="margin-top: 20px;">
+            <label for="pedido">Pedido del consumidor — opcional</label>
+            <textarea id="pedido" name="pedido" rows="3" placeholder="Indica qué solución esperas: reembolso, repetición del servicio, etc."></textarea>
+          </div>
+
+         
+          <label class="check-grupo" style="margin-top: 24px;">
+            <input type="checkbox" name="declaracion" required>
+            Declaro que la información proporcionada es verídica y autorizo a Sanservi S.A.C. al tratamiento de mis datos personales conforme a la Ley N° 29733, exclusivamente para la atención de esta solicitud.
+          </label>
+
+          <button type="submit" class="btn btn-primario btn-bloque" style="margin-top: 28px;">
+            Enviar Reclamación <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-contenedor">
+    <div class="footer-col">
+      <div class="footer-marca">San<span>servi</span></div>
+      <span class="footer-tagline">Saneamiento Ambiental y Servicios Integrados</span>
+    </div>
+    <div class="footer-col">
+      <h3>Servicios</h3>
+      <p><a href="ServiciosLimpieza.html">Servicios de Limpieza</a></p>
+      <p><a href="ServiciosSaneamiento.html">Servicios de Saneamiento</a></p>
+      <p><a href="Contratacion.html">Trabaja con Nosotros</a></p>
+    </div>
+    <div class="footer-col">
+      <h3>Contacto</h3>
+      <p><i class="fab fa-whatsapp"></i> 949 006 702 / 917 890 078</p>
+      <p><i class="fas fa-phone-alt"></i> (01) 3017656</p>
+      <p><i class="fas fa-envelope"></i> ventas@sanservi.com</p>
+    </div>
+    <div class="footer-col">
+      <h3>Ubicación</h3>
+      <p><i class="fas fa-location-dot"></i> Calle Chinchón 858 Piso 2<br>San Isidro, Lima — Perú</p>
+    </div>
+  </div>
+  <hr>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 Sanservi. Todos los derechos reservados.</p>
+    <div class="footer-legal">
+      <a href="privacidad.html">Política de Privacidad</a>
+      <a href="terminos.html">Términos de Servicio</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('menuToggle').addEventListener('click', function() {
+    const nav = document.getElementById('navPrincipal');
+    const isOpen = nav.classList.toggle('abierto');
+    this.setAttribute('aria-expanded', isOpen);
+  });
+
+  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const parentDropdown = this.closest('.dropdown');
+        const isOpen = parentDropdown.classList.toggle('abierto');
+        this.setAttribute('aria-expanded', isOpen);
+      }
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    const header = document.getElementById('header');
+    header.style.background = 'var(--blanco)';
+    header.style.padding = '14px 0';
+  });
+
+  const esMenorCheckbox = document.getElementById('esMenor');
+  const camposApoderado = document.getElementById('camposApoderado');
+  const apoderadoNombre = document.getElementById('apoderadoNombre');
+  const apoderadoDoc = document.getElementById('apoderadoDoc');
+
+  esMenorCheckbox.addEventListener('change', function() {
+    if (this.checked) {
+      camposApoderado.classList.add('visible');
+      apoderadoNombre.setAttribute('required', 'required');
+      apoderadoDoc.setAttribute('required', 'required');
+    } else {
+      camposApoderado.classList.remove('visible');
+      apoderadoNombre.removeAttribute('required');
+      apoderadoDoc.removeAttribute('required');
+    }
+  });
+</script>
+</body>
+</html>
+

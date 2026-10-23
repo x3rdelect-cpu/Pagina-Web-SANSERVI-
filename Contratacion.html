@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabaja con Nosotros — Sanservi</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+<header id="header">
+  <div class="header-contenedor">
+    <div class="logo">
+      <a href="Inicio.html" class="logo-enlace" aria-label="Sanservi Inicio">
+        <img src="Img-web/Logo_Sanservi.png" alt="Logo de Sanservi" class="logo-img">
+      </a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="navPrincipal">
+      <ul>
+        <li><a href="Inicio.html">Inicio</a></li>
+        <li><a href="Nosotros.html"> Nosotros</a></li>
+        <li class="dropdown">
+          <a href="#servicios" class="dropdown-toggle" aria-expanded="false">Servicios <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="ServiciosLimpieza.html"><i class="fas fa-broom"></i> Limpieza</a></li>
+            <li><a href="ServiciosSaneamiento.html"><i class="fas fa-hand-holding-medical"></i> Saneamiento</a></li>
+          </ul>
+        </li>
+        <li><a href="Blog.html">Blog</a></li>
+        <li><a href="Inicio.html#contacto">Contacto</a></li>
+        <li><a href="Contratacion.html" class="btn-nav-cta">Trabaja con Nosotros</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="contenedor-reclutamiento" style="margin-top: 140px;">
+  
+  <section class="bloque-info-empleo">
+    <h2>¡Únete a nuestro equipo técnico!</h2>
+    <p style="color: var(--gris-texto); margin-bottom: 25px;">En Sanservi buscamos profesionales comprometidos, detallistas y con ganas de crecer. Ofrecemos ingreso a planilla con todos los beneficios de ley, capacitaciones constantes en bioseguridad y un excelente clima laboral.</p>
+    
+    <h3>Puestos en convocatoria constante:</h3>
+    <ul class="bloque-servicio" style="background: transparent; border: none; box-shadow: none; padding: 0; margin: 0 0 35px 0;">
+      <li style="margin-bottom: 12px; background: var(--blanco); display: flex; align-items: flex-start; gap: 10px; padding: 10px; border-radius: var(--radio);">
+        <i class="fas fa-circle-check" style="color: var(--verde-acento); margin-top: 4px;"></i>
+        <div><strong>Operarios de Limpieza Corporativa:</strong> Con o sin experiencia, para oficinas y plantas industriales.</div>
+      </li>
+      <li style="margin-bottom: 12px; background: var(--blanco); display: flex; align-items: flex-start; gap: 10px; padding: 10px; border-radius: var(--radio);">
+        <i class="fas fa-circle-check" style="color: var(--verde-acento); margin-top: 4px;"></i>
+        <div><strong>Técnicos en Saneamiento Ambiental:</strong> Experiencia en fumigación, control de plagas y desinfección (deseable carné de salud).</div>
+      </li>
+      <li style="margin-bottom: 12px; background: var(--blanco); display: flex; align-items: flex-start; gap: 10px; padding: 10px; border-radius: var(--radio);">
+        <i class="fas fa-circle-check" style="color: var(--verde-acento); margin-top: 4px;"></i>
+        <div><strong>Supervisores de Campo:</strong> Liderazgo de equipos, gestión de asistencia y aseguramiento de la calidad del servicio.</div>
+      </li>
+    </ul>
+
+    <div class="imagen-reclutamiento" style="border-radius: var(--radio-l); overflow: hidden; box-shadow: var(--sombra-m); border: 1px solid var(--gris-borde);">
+      <img src="Img-web/secretaria.png" alt="Secretaria profesional atendiendo llamadas" style="width: 100%; height: 280px; object-fit: cover; display: block;">
+    </div>
+  </section>
+  
+  <section class="contacto-formulario-wrap" style="background: var(--blanco); border: 1px solid var(--gris-borde); padding: 30px; border-radius: var(--radio-l);">
+    <h3 style="color: var(--azul-profundo); font-size: 1.35rem; font-weight: 700; margin-bottom: 20px; text-align: center;">Envíanos tus datos</h3>
+    
+    <form class="contacto-formulario" action="Conexion.php" method="POST" enctype="multipart/form-data">
+      <div class="form-grupo" style="margin-bottom: 15px;">
+        <label for="nombre" style="display: block; margin-bottom: 5px; font-weight: 600;">Nombre Completo</label>
+        <input type="text" id="nombre" name="nombre" required placeholder="Ej. Juan Pérez Ramos" style="width: 100%; padding: 10px; border: 1px solid var(--gris-borde); border-radius: var(--radio);">
+      </div>
+      
+      <div class="form-grupo" style="margin-bottom: 15px;">
+        <label for="telefono" style="display: block; margin-bottom: 5px; font-weight: 600;">Número de Teléfono / WhatsApp</label>
+        <input type="tel" id="telefono" name="telefono" required placeholder="Ej. 987654321" style="width: 100%; padding: 10px; border: 1px solid var(--gris-borde); border-radius: var(--radio);">
+      </div>
+      
+      <div class="form-grupo" style="margin-bottom: 15px;">
+        <label for="correo" style="display: block; margin-bottom: 5px; font-weight: 600;">Correo Electrónico</label>
+        <input type="email" id="correo" name="correo" required placeholder="Ej. juan.perez@email.com" style="width: 100%; padding: 10px; border: 1px solid var(--gris-borde); border-radius: var(--radio);">
+      </div>
+      
+      <div class="form-grupo" style="margin-bottom: 15px;">
+        <label for="puesto" style="display: block; margin-bottom: 5px; font-weight: 600;">Puesto al que postula</label>
+        <select id="puesto" name="puesto" required style="width: 100%; padding: 10px; border: 1px solid var(--gris-borde); border-radius: var(--radio); background-color: white;">
+          <option value="" disabled selected>Selecciona un puesto</option>
+          <option value="operario-limpieza">Operario de Limpieza Corporativa</option>
+          <option value="tecnico-saneamiento">Técnico en Saneamiento Ambiental</option>
+          <option value="supervisor-campo">Supervisor de Campo</option>
+          <option value="administrativo">Administración / Ventas</option>
+        </select>
+      </div>
+      
+      <div class="form-grupo" style="margin-bottom: 18px;">
+        <label for="cv" style="display: block; margin-bottom: 5px; font-weight: 600;">Adjuntar CV (PDF o DOCX)</label>
+        <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" style="width: 100%; padding: 10px; border: 1px solid var(--gris-borde); border-radius: var(--radio); background-color: white;">
+      </div>
+
+      <div class="form-grupo" style="margin-bottom: 20px;">
+        <label for="mensaje" style="display: block; margin-bottom: 5px; font-weight: 600;">Mensaje adicional (opcional)</label>
+        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos algo extra sobre ti o tu experiencia..." style="width: 100%; padding: 10px; border: 1px solid var(--gris-borde); border-radius: var(--radio); resize: vertical;"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primario btn-bloque">Enviar Postulación <i class="fas fa-paper-plane"></i></button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-contenedor">
+    <div class="footer-col">
+      <div class="footer-marca">San<span>servi</span></div>
+      <span class="footer-tagline">Saneamiento Ambiental y Servicios Integrados</span>
+    </div>
+    <div class="footer-col">
+      <h3>Servicios</h3>
+      <p><a href="ServiciosLimpieza.html">Servicios de Limpieza</a></p>
+      <p><a href="ServiciosSaneamiento.html">Servicios de Saneamiento</a></p>
+      <p><a href="Contratacion.html">Trabaja con Nosotros</a></p>
+    </div>
+    <div class="footer-col">
+      <h3>Contacto</h3>
+      <p><i class="fab fa-whatsapp"></i> 949 006 702 / 917 890 078</p>
+      <p><i class="fas fa-phone-alt"></i> (01) 3017656</p>
+      <p><i class="fas fa-envelope"></i> ventas@sanservi.com</p>
+    </div>
+    <div class="footer-col">
+      <h3>Ubicación</h3>
+      <p><i class="fas fa-location-dot"></i> Calle Chinchón 858 Piso 2<br>San Isidro, Lima — Perú</p>
+    </div>
+    <a href="Libro-de-reclamo.html" target="_blank" class="boton-reclamaciones">
+    <i class="fa-solid fa-book-open"></i> Libro de Reclamaciones
+    </a>
+    <div class="redes-sociales">
+  <a href="https://www.facebook.com/sanservisac" target="_blank" rel="noopener noreferrer" class="icono-red facebook">
+    <i class="fa-brands fa-facebook-f"></i>
+  </a>
+
+  <a href="https://www.instagram.com/sanservisac/" target="_blank" rel="noopener noreferrer" class="icono-red instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
+  <a href="https://pe.linkedin.com/company/sanservi-sac" target="_blank" rel="noopener noreferrer" class="icono-red linkedin">
+    <i class="fa-brands fa-linkedin-in"></i>
+  </a>
+</div>
+  </div>
+  <hr>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 Sanservi. Todos los derechos reservados.</p>
+    <div class="footer-legal">
+      <a href="privacidad.html">Política de Privacidad</a>
+      <a href="terminos.html">Términos de Servicio</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('menuToggle').addEventListener('click', function() {
+    const nav = document.getElementById('navPrincipal');
+    const isOpen = nav.classList.toggle('abierto');
+    this.setAttribute('aria-expanded', isOpen);
+  });
+
+  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const parentDropdown = this.closest('.dropdown');
+        const isOpen = parentDropdown.classList.toggle('abierto');
+        this.setAttribute('aria-expanded', isOpen);
+      }
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    const header = document.getElementById('header');
+    header.style.background = 'var(--blanco)';
+    header.style.padding = '14px 0';
+  });
+</script>
+</body>
+</html>

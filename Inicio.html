@@ -1,0 +1,400 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanservi - Saneamiento Ambiental y Servicios Integrados</title>
+  <meta name="description" content="Servicios profesionales de limpieza y saneamiento ambiental en Lima, Perú. Más de 10 años de experiencia.">
+  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    .fondo1  { background-image: url('Img-web/Imagenes-Web/Limpieza_In.png'); background-size:cover; background-position:center; }
+    .fondo2  { background-image: url('Img-web/Imagenes-Web/Saneamiento_In.jpeg'); background-size:cover; background-position:center; }
+    .fondo3  { background-image: url('Img-web/Imagenes-Web/presentacion.png'); background-size:cover; background-position:center; }
+  </style>
+</head>
+<body>
+
+<header id="header">
+  <div class="header-contenedor">
+    <div class="logo">
+      <a href="Inicio.html" class="logo-enlace" aria-label="Sanservi Inicio">
+        <img src="Img-web/Logo_Sanservi.png" alt="Logo de Sanservi" class="logo-img">
+      </a>
+    </div>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav id="navPrincipal">
+      <ul>
+        <li><a href="Inicio.html">Inicio</a></li>
+        <li><a href="Nosotros.html"> Nosotros</a></li>
+        <li class="dropdown">
+          <a href="#servicios" class="dropdown-toggle" aria-expanded="false">Servicios <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="ServiciosLimpieza.html"><i class="fas fa-broom"></i> Limpieza</a></li>
+            <li><a href="ServiciosSaneamiento.html"><i class="fas fa-hand-holding-medical"></i> Saneamiento</a></li>
+          </ul>
+        </li>
+        <li><a href="Blog.html">Blog</a></li>
+        <li><a href="Inicio.html#contacto">Contacto</a></li>
+        <li><a href="Contratacion.html" class="btn-nav-cta">Trabaja con Nosotros</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="video-intro" id="video-inicio">
+  
+    <source src:"Video_Present/ Presentacion de web.mp4" type="video/mp4">
+
+  <video
+    class="video-intro-bg"
+    autoplay
+    muted
+    loop
+    playsinline
+    poster="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1400&q=85"
+  >
+    <source src="Video_Present/Presentacion de web.mp4" type="video/mp4">
+  </video>
+
+  <div class="video-intro-contenido">
+    <div class="video-intro-separador"></div>
+    <h2>Limpieza y Saneamiento Ambiental de Alto Estándar</h2>
+    <p>Más de 9 años protegiendo ambientes corporativos y residenciales en Lima con soluciones certificadas.</p>
+  </div>
+
+  <a href="#hero-carrusel" class="video-scroll-btn" aria-label="Ir al contenido">
+    <i class="fas fa-chevron-down"></i>
+  </a>
+
+  <a href="#hero-carrusel" class="video-skip-btn">
+    Explorar el sitio <i class="fas fa-arrow-right"></i>
+  </a>
+</section>
+
+<section class="hero-carrusel" id="hero-carrusel">
+  <div class="carrusel-diapo activa fondo1">
+    <div class="hero">
+      <div class="hero-contenido">
+        <span class="hero-tag">Especialistas en Limpieza Corporativa</span>
+        <h1>Trasformamos tu entorno en un lugar seguro, higiénico y reluciente</h1>
+        <p>Soluciones integrales de limpieza para oficinas, plantas industriales, centros médicos, centros educativos entre otros. Con equipos e insumos de última tecnologia.</p>
+        <div class="hero-acciones">
+          <a href="ServiciosLimpieza.html" class="btn btn-primario"><i class="fas fa-arrow-right"></i> Ver Servicios de Limpieza</a>
+          <a href="#contacto" class="btn btn-secundario">Cotizar Ahora</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="carrusel-diapo fondo2">
+    <div class="hero">
+      <div class="hero-contenido">
+        <span class="hero-tag">Saneamiento Ambiental Certificado</span>
+        <h1>Protegemos la Salud de tu Empresa y Familia</h1>
+        <p>Servicios autorizados por DIGESA en desinsectación, desratización, desinfección y limpieza y Desinfección de reservorios de agua.</p>
+        <div class="hero-acciones">
+          <a href="ServiciosSaneamiento.html" class="btn btn-primario"><i class="fas fa-arrow-right"></i> Ver Saneamiento Ambiental</a>
+          <a href="#contacto" class="btn btn-secundario">Solicitar Certificado</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="carrusel-diapo fondo3">
+    <div class="hero">
+      <div class="hero-contenido">
+        <span class="hero-tag">Personal verificado e idoneo</span>
+        <h1>Seleccion, homologación y asignación de personal de confianza</h1>
+        <p>Te ayudamos a encontrar personal calificado para tus necesidades laborales.</p>
+        <div class="hero-acciones">
+          <a href="blog-outsourcing-limpieza.html" class="btn btn-primario"><i class="fas fa-shield-halved"></i> Saber Más</a>
+          <a href="#contacto" class="btn btn-secundario">Contáctanos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="carrusel-control prev" id="prevSlide" aria-label="Anterior">&#10094;</button>
+  <button class="carrusel-control next" id="nextSlide" aria-label="Siguiente">&#10095;</button>
+  
+  <div class="carrusel-indicadores">
+    <span class="indicador activo" data-slide="0"></span>
+    <span class="indicador" data-slide="1"></span>
+    <span class="indicador" data-slide="2"></span>
+  </div>
+</section>
+
+<section id="servicios" class="servicios-seccion">
+  <div class="contenedor-seccion">
+    <div class="seccion-cabecera">
+      <span class="seccion-subtitulo">Nuestras Soluciones</span>
+      <h2>Servicios Integrales a Tu Medida</h2>
+      <p>Nos adaptamos a las necesidades específicas de tu sector operativo, garantizando resultados profesionales.</p>
+    </div>
+    
+    <div class="servicios-grid">
+      <div class="servicio-tarjeta">
+        <div class="servicio-icono"><i class="fas fa-broom"></i></div>
+        <h3>Servicios de Limpieza</h3>
+        <p>Limpieza corporativa diaria, lavado especializado de alfombras, vidrios en altura y aplicación experta de retardante de fuego certificado para INDECI.</p>
+        <a href="ServiciosLimpieza.html" class="servicio-enlace">Explorar Especialidades <i class="fas fa-chevron-right"></i></a>
+      </div>
+      
+      <div class="servicio-tarjeta">
+        <div class="servicio-icono"><i class="fas fa-hand-holding-medical"></i></div>
+        <h3>Saneamiento Ambiental</h3>
+        <p>Control de plagas (desinsectación y desratización), desinfección ambiental contra patógenos y lavado normativo de tanques y cisternas con entrega de certificado oficial.</p>
+        <a href="ServiciosSaneamiento.html" class="servicio-enlace">Explorar Especialidades <i class="fas fa-chevron-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="nosotros" class="clientes-marquee-seccion">
+  <div class="contenedor-seccion" style="padding-bottom: 30px;">
+    <div class="seccion-cabecera">
+      <span class="seccion-subtitulo">Confianza que respalda</span>
+      <h2>Nuestros Clientes</h2>
+      <p>A lo largo de más de 9 años hemos brindado nuestros servicios a empresas líderes de distintos sectores en Lima.</p>
+    </div>
+  </div>
+
+  <div class="clientes-marquee-wrap">
+    <div class="clientes-marquee-track">
+
+      <div class="marquee-logo"><img src="Img-web/Clientes/Antalis-Peru.png" alt="Cliente Antalis Perú" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/CBC-peruana.png" alt="Cliente CBC Peruana" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/Cosmo-AgenMar.png" alt="Cliente Cosmo AgenMar" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/EuroFarma.png" alt="Cliente Eurofarma" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/JJC-Grupo.png" alt="Cliente JJC Grupo" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/Linea1.png" alt="Cliente Lí­nea 1" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/MT-Industrial.png" alt="Cliente MT Industrial" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/Plasticos-Reunidos.png" alt="Cliente Plásticos Reunidos" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/Cushman&wakefield.png" alt="Cliente Cushman & Wakefield" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/Polleria-Pardos.png" alt="Cliente Polleria Pardos" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/Polleria-Roky's.png" alt="Cliente Pollerias Roky's" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/Rinconada-Country-Club.png" alt="Cliente Rinconada Country Club" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/ROM-OUTSOURCING.png" alt="Cliente ROM OUTSOURCING" loading="lazy"></div>
+
+      <div class="marquee-logo"><img src="Img-web/Clientes/Antalis-Peru.png" alt="Cliente Antalis Perú" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/CBC-peruana.png" alt="Cliente CBC Peruana" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/Cosmo-AgenMar.png" alt="Cliente Cosmo AgenMar" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/EuroFarma.png" alt="Cliente Eurofarma" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/JJC-Grupo.png" alt="Cliente JJC Grupo" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/Linea1.png" alt="Cliente Lí­nea 1" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/MT-Industrial.png" alt="Cliente MT Industrial" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/Plasticos-Reunidos.png" alt="Cliente Plásticos Reunidos" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/Cushman&wakefield.png" alt="Cliente Cushman & Wakefield" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/Polleria-Pardos.png" alt="Cliente Polleria Pardos" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/Polleria-Roky's.png" alt="Cliente Polleria Roky's" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/Rinconada-Country-Club.png" alt="Cliente Rinconada Country Club" loading="lazy"></div>
+      <div class="marquee-logo"><img src="Img-web/Clientes/ROM-OUTSOURCING.png" alt="Cliente ROM OUTSOURCING" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="certificaciones-seccion">
+  <div class="contenedor-seccion">
+    <div class="seccion-cabecera">
+      <span class="seccion-subtitulo">Certificaciones y respaldo</span>
+      <h2>Documentos y certificaciones que respaldan nuestro trabajo</h2>
+      <p>Estas son algunas de las certificaciones y respaldos que pueden incorporarse en la sección.</p>
+    </div>
+
+    <div class="certificaciones-grid">
+      <article class="certificacion-card senasa-certificacion">
+        <div class="certificacion-imagen">
+          <img src="Img-web/Certificaciones/Senasa.png" alt="Certificación validado por SENASA a Sanservi">
+        </div>
+        <h3>SENASA</h3>
+      </article>
+
+      <article class="certificacion-card senasa-certificacion">
+        <div class="certificacion-imagen">
+          <img src="Img-web/Certificaciones/MinisterioDelTrabajo.png" alt="Certificación del ministerio de trabajo a Sanservi">
+        </div>
+        <h3>MTPE</h3>
+      </article>
+
+      <article class="certificacion-card senasa-certificacion">
+        <div class="certificacion-imagen">
+          <img src="Img-web/Certificaciones/MinisterioDeSalud.png" alt="Certificación del ministerio de salud a Sanservi">
+        </div>
+        <h3>Minsa</h3>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contacto-seccion">
+  <div class="contenedor-seccion">
+    <div class="contacto-grid">
+      <div class="contacto-info">
+        <h2>¿Listo para empezar? Solicita una Cotización Gratuita</h2>
+        <p>Completa el formulario o comunícate directamente con nuestros asesores de atención comercial para agendar una inspección técnica inmediata.</p>
+        
+        <div class="contacto-canales">
+          <div class="canal">
+            <i class="fab fa-whatsapp"></i>
+            <div>
+              <strong>WhatsApp Comercial</strong>
+              <span>949 006 702 / 917 890 078</span>
+            </div>
+          </div>
+          <div class="canal">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <strong>Correo Electrónico</strong>
+              <span>ventas@sanservi.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contacto-formulario-wrap">
+        <form class="contacto-formulario" action="contacto.php" method="POST">
+          <div class="form-grupo">
+            <label for="nombre">Nombre / Empresa</label>
+            <input type="text" id="nombre" name="nombre" required placeholder="Ej. Corporación ABC">
+          </div>
+          <div class="form-grupo">
+            <label for="correo">Correo Electrónico</label>
+            <input type="email" id="correo" name="correo" required placeholder="Ej. contacto@empresa.com">
+          </div>
+          <div class="form-grupo">
+            <label for="servicio">Servicio de Interés</label>
+            <select id="servicio" name="servicio" required>
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option value="limpieza">Servicios de Limpieza</option>
+              <option value="saneamiento">Saneamiento Ambiental</option>
+              <option value="ambos">Servicio Integrado Completo</option>
+              <option value="destacamiento">Destacamiento y Reclutamiento de personal</option>
+            </select>
+          </div>
+          <div class="form-grupo">
+            <label for="mensaje">Detalles del Requerimiento</label>
+            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos o especifica el tipo de servicio que necesitas..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primario btn-bloque">Enviar Solicitud <i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-contenedor">
+    <div class="footer-col">
+      <div class="footer-marca">San<span>servi</span></div>
+      <span class="footer-tagline">Saneamiento Ambiental y Servicios Integrados</span>
+    </div>
+    <div class="footer-col">
+      <h3>Servicios</h3>
+      <p><a href="ServiciosLimpieza.html">Servicios de Limpieza</a></p>
+      <p><a href="ServiciosSaneamiento.html">Servicios de Saneamiento</a></p>
+      <p><a href="Contratacion.html">Trabaja con Nosotros</a></p>
+    </div>
+    <div class="footer-col">
+      <h3>Contacto</h3>
+      <p><i class="fab fa-whatsapp"></i> 949 006 702 / 917 890 078</p>
+      <p><i class="fas fa-phone-alt"></i> (01) 3017656</p>
+      <p><i class="fas fa-envelope"></i> ventas@sanservi.com</p>
+    </div>
+    <div class="footer-col">
+      <h3>Ubicación</h3>
+      <p><i class="fas fa-location-dot"></i> Calle Chinchón 858 Piso 2<br>San Isidro, Lima — Perú</p>
+    </div>
+    <a href="Libro-de-reclamo.html" target="_blank" class="boton-reclamaciones">
+    <i class="fa-solid fa-book-open"></i> Libro de Reclamaciones
+    </a>
+    <div class="redes-sociales">
+  <a href="https://www.facebook.com/sanservisac" target="_blank" rel="noopener noreferrer" class="icono-red facebook">
+    <i class="fa-brands fa-facebook-f"></i>
+  </a>
+
+  <a href="https://www.instagram.com/sanservisac/" target="_blank" rel="noopener noreferrer" class="icono-red instagram">
+    <i class="fa-brands fa-instagram"></i>
+  </a>
+
+  <a href="https://pe.linkedin.com/company/sanservi-sac" target="_blank" rel="noopener noreferrer" class="icono-red linkedin">
+    <i class="fa-brands fa-linkedin-in"></i>
+  </a>
+</div>
+  </div>
+  <hr>
+  <div class="footer-bottom">
+    <p class="footer-copy">&copy; 2026 Sanservi. Todos los derechos reservados.</p>
+    <div class="footer-legal">
+      <a href="privacidad.html">Política de Privacidad</a>
+      <a href="terminos.html">Términos de Servicio</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+
+  const slides = document.querySelectorAll('.carrusel-diapo');
+  const indicators = document.querySelectorAll('.indicador');
+  const prevBtn = document.getElementById('prevSlide');
+  const nextBtn = document.getElementById('nextSlide');
+  let currentSlide = 0;
+  let slideInterval;
+
+  function showSlide(index) {
+    slides[currentSlide].classList.remove('activa');
+    indicators[currentSlide].classList.remove('activo');
+    
+    currentSlide = (index + slides.length) % slides.length;
+    
+    slides[currentSlide].classList.add('activa');
+    indicators[currentSlide].classList.add('activo');
+  }
+
+  function nextSlide() { showSlide(currentSlide + 1); }
+  function prevSlide() { showSlide(currentSlide - 1); }
+
+  function startTimer() { slideInterval = setInterval(nextSlide, 6000); }
+  function resetTimer() { clearInterval(slideInterval); startTimer(); }
+
+  nextBtn.addEventListener('click', () => { nextSlide(); resetTimer(); });
+  prevBtn.addEventListener('click', () => { prevSlide(); resetTimer(); });
+
+  indicators.forEach(indicator => {
+    indicator.addEventListener('click', (e) => {
+      const slideIndex = parseInt(e.target.getAttribute('data-slide'));
+      showSlide(slideIndex);
+      resetTimer();
+    });
+  });
+
+  startTimer();
+
+
+  document.getElementById('menuToggle').addEventListener('click', function() {
+    const nav = document.getElementById('navPrincipal');
+    const isOpen = nav.classList.toggle('abierto');
+    this.setAttribute('aria-expanded', isOpen);
+  });
+
+  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', function(e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        const parentDropdown = this.closest('.dropdown');
+        const isOpen = parentDropdown.classList.toggle('abierto');
+        this.setAttribute('aria-expanded', isOpen);
+      }
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    const header = document.getElementById('header');
+    header.style.background = 'var(--blanco)';
+    header.style.padding = '14px 0';
+  });
+</script>
+</body>
+</html>
