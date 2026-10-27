@@ -1771,68 +1771,118 @@ footer hr {
 }
 
 .certificaciones-seccion {
-  background-color: var(--gris-fondo);
-  padding-top: 10px;
-  padding-bottom: 40px;
+  background: linear-gradient(180deg, var(--blanco) 0%, #f4f9fd 100%);
+}
+
+.certificaciones-seccion .contenedor-seccion {
+  padding: 54px 24px 60px;
+}
+
+.certificaciones-seccion .seccion-cabecera {
+  max-width: 650px;
+  margin-bottom: 28px;
+}
+
+.certificaciones-seccion .seccion-cabecera .seccion-subtitulo {
+  margin-bottom: 7px;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+}
+
+.certificaciones-seccion .seccion-cabecera h2 {
+  margin-bottom: 10px;
+  font-size: clamp(2rem, 3vw, 2.55rem);
+  line-height: 1.08;
+}
+
+.certificaciones-seccion .seccion-cabecera p {
+  font-size: 0.9rem;
+  line-height: 1.55;
 }
 
 .certificaciones-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.certificaciones-fila {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 
 .certificacion-card {
-  background-color: var(--blanco);
-  border: 1px solid var(--gris-borde);
-  border-radius: var(--radio-l);
-  padding: 18px;
-  box-shadow: var(--sombra-s);
+  min-width: 0;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(17, 50, 82, 0.13);
+  border-radius: 16px;
+  padding: 13px 13px 12px;
+  box-shadow: 0 5px 14px rgba(17, 50, 82, 0.07);
   transition: var(--trans);
+  text-align: center;
 }
 
 .certificacion-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--sombra-m);
-  border-color: rgba(26, 92, 150, 0.2);
+  border-color: rgba(26, 92, 150, 0.25);
+  box-shadow: 0 12px 24px rgba(17, 50, 82, 0.11);
 }
 
 .certificacion-imagen {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: 94px;
   overflow: hidden;
-  border-radius: var(--radio);
-  background-color: var(--gris-fondo);
+  border: 1px solid rgba(17, 50, 82, 0.06);
+  border-radius: 10px;
+  background: #f4f5f7;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 14px;
+  padding: 12px;
 }
 
 .certificacion-imagen img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.certificacion-card.senasa-certificacion .certificacion-imagen {
-  background-color: #ffffff;
-  padding: 10px;
-}
-
-.certificacion-card.senasa-certificacion .certificacion-imagen img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 68px;
   object-fit: contain;
   object-position: center;
+  display: block;
+  filter: saturate(0.9);
 }
 
 .certificacion-card h3 {
-  font-size: 1.05rem;
+  margin-top: 12px;
+  font-size: 0.93rem;
   color: var(--azul-profundo);
-  font-weight: 700;
-  text-align: center;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
 }
 
+@media (max-width: 768px) {
+  .certificaciones-grid {
+    max-width: 560px;
+  }
+
+  .certificaciones-fila {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .certificaciones-seccion .contenedor-seccion {
+    padding: 46px 18px 50px;
+  }
+
+  .certificaciones-fila {
+    grid-template-columns: 1fr;
+  }
+}
 .clientes-marquee-wrap {
   position: relative;
   width: 100%;
