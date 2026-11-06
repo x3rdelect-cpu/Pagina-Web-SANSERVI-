@@ -1,94 +1,72 @@
 <?php
 declare(strict_types=1);
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(405);
-    header('Allow: POST');
-    exit('Método no permitido.');
+require_once __DIR__ . '/formulario_config.php';
+
+exigirMetodoPost();
+
+$tipo = campoPost('tipo', 20);
+$nombres = campoPost('nombres', 160);
+$documento = campoPost('documento', 30);
+$telefono = campoPost('telefono', 30);
+$correo = validarCorreo(campoPost('correo', 180));
+$domicilio = campoPost('domicilio', 300);
+$servicio = campoPost('servicio', 40);
+$monto = campoPost('monto', 30);
+$detalle = campoPost('detalle', 5000);
+$pedido = campoPost('pedido', 3000);
+$esMenor = isset($_POST['es_menor']);
+$apoderadoNombre = campoPost('apoderado_nombre', 160);
+$apoderadoDoc = campoPost('apoderado_documento', 30);
+
+exigirCampos([$tipo, $nombres, $documento, $telefono, $correo, $domicilio, $servicio, $detalle]);
+exigirOpcion($tipo, ['Reclamo', 'Queja'], 'tipo de solicitud');
+exigirOpcion($servicio, ['limpieza', 'saneamiento', 'ambos', 'otro'], 'servicio');
+
+if (!isset($_POST['declaracion'])) {
+    responderError(400, 'Debes aceptar la declaración para enviar la solicitud.');
 }
 
-    // ── DATOS DEL TIPO DE SOLICITUD ──
-    $tipo = trim((string) ($_POST['tipo'] ?? ''));
+if ($esMenor) {
+    exigirCampos([$apoderadoNombre, $apoderadoDoc]);
+}
 
-    // ── DATOS DEL CONSUMIDOR ──
-    $nombres    = trim((string) ($_POST['nombres'] ?? ''));
-    $documento  = trim((string) ($_POST['documento'] ?? ''));
-    $telefono   = trim((string) ($_POST['telefono'] ?? ''));
-    $correo     = trim((string) ($_POST['correo'] ?? ''));
-    $domicilio  = trim((string) ($_POST['domicilio'] ?? ''));
+$numeroReferencia = 'SANSERVI-' . date('Ymd-His') . '-' . strtoupper(bin2hex(random_bytes(2)));
+$fecha = date('d/m/Y H:i');
+$asunto = "[$tipo] Libro de Reclamaciones Web - $numeroReferencia";
 
-    // ── DATOS DEL APODERADO (SI EL RECLAMANTE ES MENOR DE EDAD) ──
-    $esMenor          = isset($_POST['es_menor']) ? 'Sí' : 'No';
-    $apoderadoNombre  = trim((string) ($_POST['apoderado_nombre'] ?? ''));
-    $apoderadoDoc     = trim((string) ($_POST['apoderado_documento'] ?? ''));
+$cuerpo = "Se recibió una nueva solicitud mediante el Libro de Reclamaciones virtual.\n\n";
+$cuerpo .= "N° de referencia: $numeroReferencia\n";
+$cuerpo .= "Fecha y hora: $fecha\n";
+$cuerpo .= "Tipo de solicitud: $tipo\n\n";
+$cuerpo .= "── DATOS DEL CONSUMIDOR ──\n";
+$cuerpo .= "Nombres y apellidos: $nombres\n";
+$cuerpo .= "Documento de identidad: $documento\n";
+$cuerpo .= "Teléfono: $telefono\n";
+$cuerpo .= "Correo: $correo\n";
+$cuerpo .= "Domicilio: $domicilio\n";
+$cuerpo .= '¿Es menor de edad?: ' . ($esMenor ? 'Sí' : 'No') . "\n";
 
-    // ── DETALLE DE LA CONTRATACIÓN ──
-    $servicio = trim((string) ($_POST['servicio'] ?? ''));
-    $monto    = trim((string) ($_POST['monto'] ?? '')) ?: 'No especificado';
+if ($esMenor) {
+    $cuerpo .= "Nombre del apoderado: $apoderadoNombre\n";
+    $cuerpo .= "Documento del apoderado: $apoderadoDoc\n";
+}
 
-    // ── DETALLE DEL RECLAMO ──
-    $detalle = trim((string) ($_POST['detalle'] ?? ''));
-    $pedido  = trim((string) ($_POST['pedido'] ?? '')) ?: 'No especificado';
+$cuerpo .= "\n── DETALLE DE LA CONTRATACIÓN ──\n";
+$cuerpo .= "Servicio: $servicio\n";
+$cuerpo .= 'Monto reclamado: ' . ($monto !== '' ? $monto : 'No especificado') . "\n";
+$cuerpo .= "\n── DETALLE DEL RECLAMO / QUEJA ──\n";
+$cuerpo .= "Descripción de los hechos:\n$detalle\n\n";
+$cuerpo .= 'Pedido del consumidor: ' . ($pedido !== '' ? $pedido : 'No especificado') . "\n\n";
+$cuerpo .= 'El plazo máximo de respuesta es de 15 días hábiles improrrogables.';
 
-    if ($tipo === '' || $nombres === '' || $documento === '' || $telefono === '' ||
-        $correo === '' || $domicilio === '' || $servicio === '' || $detalle === '') {
-        http_response_code(400);
-        exit('Por favor completa todos los campos obligatorios.');
-    }
+/*
+ * Para que “registrado” signifique almacenamiento permanente, inserta aquí el
+ * reclamo mediante PDO siguiendo el ejemplo de formulario_config.php. Realiza
+ * el INSERT antes del correo y guarda también $numeroReferencia.
+ */
+if (!enviarCorreo($asunto, $cuerpo, cabecerasCorreo($correo))) {
+    responderError(500, 'No pudimos enviar tu solicitud. Escríbenos a ' . FORMULARIO_DESTINO . '.');
+}
 
-    if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
-        http_response_code(400);
-        exit('Por favor ingresa un correo electrónico válido.');
-    }
-
-    // Número de referencia simple basado en fecha/hora
-    $numeroReferencia = 'SANSERVI-' . date('Ymd-His');
-    $fecha = date('d/m/Y H:i');
-
-    // ── DESTINATARIO ──
-    // Cambia este correo por el que se use oficialmente para atender reclamos
-    $para = 'ventas@sanservi.com';
-    $asunto = "[$tipo] Libro de Reclamaciones Web - $numeroReferencia";
-
-    $cuerpo  = "Se ha recibido una nueva solicitud a través del Libro de Reclamaciones virtual de la web.\n\n";
-    $cuerpo .= "N° de Referencia: $numeroReferencia\n";
-    $cuerpo .= "Fecha y hora: $fecha\n";
-    $cuerpo .= "Tipo de solicitud: $tipo\n\n";
-
-    $cuerpo .= "── DATOS DEL CONSUMIDOR ──\n";
-    $cuerpo .= "Nombres y Apellidos: $nombres\n";
-    $cuerpo .= "Documento de Identidad: $documento\n";
-    $cuerpo .= "Teléfono: $telefono\n";
-    $cuerpo .= "Correo: $correo\n";
-    $cuerpo .= "Domicilio: $domicilio\n";
-    $cuerpo .= "¿Es menor de edad?: $esMenor\n";
-
-    if ($esMenor === 'Sí') {
-        $cuerpo .= "Nombre del Apoderado: $apoderadoNombre\n";
-        $cuerpo .= "Documento del Apoderado: $apoderadoDoc\n";
-    }
-
-    $cuerpo .= "\n── DETALLE DE LA CONTRATACIÓN ──\n";
-    $cuerpo .= "Servicio: $servicio\n";
-    $cuerpo .= "Monto Reclamado: $monto\n";
-
-    $cuerpo .= "\n── DETALLE DEL RECLAMO / QUEJA ──\n";
-    $cuerpo .= "Descripción de los hechos:\n$detalle\n\n";
-    $cuerpo .= "Pedido del consumidor:\n$pedido\n\n";
-
-    $cuerpo .= "Recuerda: el plazo de respuesta es de 30 días calendario conforme al D.S. N° 101-2022-PCM.";
-
-    $headers = "From: ventas@sanservi.com\r\n";
-    $headers .= "Reply-To: " . $correo . "\r\n";
-    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-    $headers .= "X-Mailer: PHP/" . phpversion();
-
-    if (mail($para, $asunto, $cuerpo, $headers)) {
-        // Redirige a una página de confirmación con el número de referencia
-        header("Location: gracias-reclamo.html?ref=" . urlencode($numeroReferencia), true, 303);
-        exit;
-    } else {
-        http_response_code(500);
-        echo "Hubo un error al registrar tu reclamación en nuestro sistema. Por favor, inténtalo escribiendo directamente a ventas@sanservi.com";
-    }
-?>
+redirigir('gracias-reclamo.html?ref=' . urlencode($numeroReferencia));

@@ -338,7 +338,8 @@ nav ul li a.activo::after {
   border: 1px solid rgba(0, 196, 161, 0.3);
 }
 
-.hero-contenido h1 {
+.hero-contenido h1,
+.hero-contenido h2 {
   font-size: 3.5rem;
   font-weight: 800;
   color: var(--blanco);
@@ -904,7 +905,7 @@ nav ul li a.activo::after {
   text-align: center;
 }
 
-.sub-Limpieza h2 {
+.sub-Limpieza h1 {
   font-size: 2.75rem;
   font-weight: 800;
   letter-spacing: -0.5px;
@@ -1236,7 +1237,7 @@ nav ul li a.activo::after {
   align-items: start;
 }
 
-.bloque-info-empleo h2 {
+.bloque-info-empleo h1 {
   font-size: 2.5rem;
   color: var(--azul-profundo);
   margin-bottom: 18px;
@@ -1352,24 +1353,16 @@ footer hr {
   margin: 0 auto;
   padding: 0 24px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   font-size: 0.88rem;
   color: var(--azul-claro);
   opacity: 0.8;
 }
 
-.footer-legal {
-  display: flex;
-  gap: 24px;
-}
-
-.footer-legal a:hover {
-  color: var(--verde-acento);
-}
-
 @media (max-width: 992px) {
-  .hero-contenido h1 { font-size: 2.75rem; }
+  .hero-contenido h1,
+  .hero-contenido h2 { font-size: 2.75rem; }
   .contacto-grid { grid-template-columns: 1fr; gap: 40px; }
   .nosotros-grid { grid-template-columns: 1fr; gap: 40px; }
   .contenedor-reclutamiento { grid-template-columns: 1fr; gap: 40px; }
@@ -1432,11 +1425,12 @@ footer hr {
     flex-direction: column;
   }
   
-  .hero-contenido h1 {
+  .hero-contenido h1,
+  .hero-contenido h2 {
     font-size: 2.25rem;
   }
   
-  .sub-Limpieza h2 {
+  .sub-Limpieza h1 {
     font-size: 2rem;
   }
   
@@ -1862,6 +1856,184 @@ footer hr {
   font-weight: 800;
   line-height: 1.2;
   text-transform: uppercase;
+}
+
+.certificacion-card--interactiva {
+  cursor: pointer;
+  position: relative;
+}
+
+.certificacion-card--interactiva:focus-visible {
+  outline: 3px solid rgba(26, 92, 150, 0.38);
+  outline-offset: 4px;
+  border-color: var(--azul-medio);
+}
+
+.certificacion-ver {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 9px;
+  color: var(--azul-medio);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.certificacion-ver i {
+  color: #d83232;
+}
+
+.certificado-abierto {
+  overflow: hidden;
+}
+
+.certificado-modal {
+  position: fixed;
+  width: min(1050px, calc(100% - 32px));
+  height: min(88vh, 820px);
+  inset: 0;
+  margin: auto;
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border: 0;
+  border-radius: 18px;
+  background: var(--blanco);
+  box-shadow: 0 28px 80px rgba(6, 25, 44, 0.35);
+  overflow: hidden;
+}
+
+.certificado-modal::backdrop {
+  background: rgba(6, 25, 44, 0.76);
+  backdrop-filter: blur(4px);
+}
+
+.certificado-modal-contenido {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.certificado-modal-cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--gris-borde);
+}
+
+.certificado-modal-etiqueta {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--azul-medio);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.certificado-modal-cabecera h2 {
+  margin: 0;
+  color: var(--azul-profundo);
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+}
+
+.certificado-modal-cerrar {
+  flex: 0 0 auto;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--gris-borde);
+  border-radius: 50%;
+  background: var(--gris-fondo);
+  color: var(--azul-profundo);
+  cursor: pointer;
+  font-size: 1.15rem;
+  transition: var(--trans);
+}
+
+.certificado-modal-cerrar:hover,
+.certificado-modal-cerrar:focus-visible {
+  color: var(--blanco);
+  background: var(--azul-profundo);
+}
+
+.certificado-modal-visor {
+  min-height: 0;
+  background: #e8edf2;
+}
+
+.certificado-modal-visor iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  display: block;
+  border: 0;
+}
+
+.certificado-modal-acciones {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px 22px;
+  border-top: 1px solid var(--gris-borde);
+}
+
+.certificado-accion {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 10px 16px;
+  border-radius: 9px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  transition: var(--trans);
+}
+
+.certificado-accion--secundaria {
+  border: 1px solid var(--gris-borde);
+  color: var(--azul-profundo);
+  background: var(--blanco);
+}
+
+.certificado-accion--primaria {
+  border: 1px solid var(--azul-medio);
+  color: var(--blanco);
+  background: var(--azul-medio);
+}
+
+.certificado-accion:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(17, 50, 82, 0.14);
+}
+
+@media (max-width: 600px) {
+  .certificado-modal {
+    width: calc(100% - 16px);
+    height: calc(100dvh - 16px);
+    border-radius: 13px;
+  }
+
+  .certificado-modal-cabecera,
+  .certificado-modal-acciones {
+    padding: 12px 14px;
+  }
+
+  .certificado-modal-acciones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .certificado-accion {
+    padding-inline: 10px;
+    font-size: 0.76rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -2487,24 +2659,6 @@ footer hr {
   .bloque-con-imagen ul li i {
     color: var(--verde-acento) !important;
   }
-.boton-reclamaciones {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px; 
-  padding: 10px 20px;
-  background-color: #1A5C96; 
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: bold;
-  border: 2px solid #1A5C96;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-.boton-reclamaciones:hover {
-  background-color: transparent;
-  color: #1A5C96;
-}
 /* ============================================================
    BLOG SANSERVI
    ============================================================ */
